@@ -16,4 +16,19 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+class Professor(models.Model):
+    id = models.CharField(max_length=3, primary_key=True)
+    name = models.CharField(max_length=30)
+    rating = models.integerField(default=0)
+
+class Subject(models.Model):
+    id = models.CharField(max_length=3, primary_key=True)
+    name = models.CharField(max_length=60)
+    year = models.integerField()
+    semester = (
+        ('1', 'first'),
+        ('2', 'second')
+        )
+    professor = models.ManyToManyField(Professor)
+    
 # Create your models here.
