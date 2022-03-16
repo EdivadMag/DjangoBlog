@@ -25,10 +25,7 @@ class Subject(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=60)
     year = models.IntegerField()
-    semester = (
-        ('1', 'first'),
-        ('2', 'second')
-        )
+    semester = models.IntegerField()
     professor = models.ManyToManyField(Professor)
 
 # Create your models here.
