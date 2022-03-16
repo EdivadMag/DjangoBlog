@@ -19,16 +19,16 @@ class Post(models.Model):
 class Professor(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=30)
-    rating = models.integerField(default=0)
+    rating = models.IntegerField(default=0)
 
 class Subject(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=60)
-    year = models.integerField()
+    year = models.IntegerField()
     semester = (
         ('1', 'first'),
         ('2', 'second')
         )
     professor = models.ManyToManyField(Professor)
-    
+
 # Create your models here.
