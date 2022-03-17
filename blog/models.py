@@ -20,6 +20,7 @@ class Professor(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
     name = models.CharField(max_length=30)
     rating = models.IntegerField(default=0)
+    n_votes = models.IntegerField(default=0)
 
 class Subject(models.Model):
     id = models.CharField(max_length=3, primary_key=True)
@@ -27,5 +28,11 @@ class Subject(models.Model):
     year = models.IntegerField()
     semester = models.IntegerField()
     professor = models.ManyToManyField(Professor)
+
+class Student(models.Model):
+    name = models.CharField(max_length=60)
+    email = models.CharField(max_length=60)
+    password = models.CharField(max_length=30)
+
 
 # Create your models here.
