@@ -4,13 +4,14 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register('professor', views.ProfViewSet)
-router.register('subject', views.SubjectViewSet)
-router.register('student', views.StudentViewSet)
+# router.register('professor', views.ProfViewSet)
+# router.register('subject', views.SubjectViewSet)
+# router.register('student', views.StudentViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('list/', views.List, name='list'),
+    path('ratings/', views.Ratings, name='ratings')
 ]
